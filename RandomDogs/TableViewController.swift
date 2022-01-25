@@ -18,7 +18,7 @@ class FirstTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.reloadData()
+//        tableView.reloadData()
     }
 
     // MARK: - Table view data source

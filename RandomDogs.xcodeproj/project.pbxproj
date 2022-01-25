@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		392014EC279EB3EF009134A4 /* BreedCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392014EB279EB3EF009134A4 /* BreedCollectionVC.swift */; };
 		39476A91278ECEB6009E7D4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A90278ECEB6009E7D4D /* AppDelegate.swift */; };
 		39476A93278ECEB6009E7D4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A92278ECEB6009E7D4D /* SceneDelegate.swift */; };
 		39476A95278ECEB6009E7D4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A94278ECEB6009E7D4D /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		392014EB279EB3EF009134A4 /* BreedCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCollectionVC.swift; sourceTree = "<group>"; };
 		39476A8D278ECEB6009E7D4D /* RandomDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39476A90278ECEB6009E7D4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39476A92278ECEB6009E7D4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				39476AAB278ED241009E7D4D /* NetworkManager.swift */,
 				39476A94278ECEB6009E7D4D /* ViewController.swift */,
 				39476AA7278ED129009E7D4D /* DetailViewController.swift */,
+				392014EB279EB3EF009134A4 /* BreedCollectionVC.swift */,
 				39476AAD27943150009E7D4D /* TableViewController.swift */,
 				39476A96278ECEB6009E7D4D /* Main.storyboard */,
 				39476AB327999518009E7D4D /* CustomTableViewCell.swift */,
@@ -167,6 +170,7 @@
 				39476AAE27943150009E7D4D /* TableViewController.swift in Sources */,
 				39476AAC278ED241009E7D4D /* NetworkManager.swift in Sources */,
 				39476AAA278ED149009E7D4D /* Model.swift in Sources */,
+				392014EC279EB3EF009134A4 /* BreedCollectionVC.swift in Sources */,
 				39476A91278ECEB6009E7D4D /* AppDelegate.swift in Sources */,
 				39476A93278ECEB6009E7D4D /* SceneDelegate.swift in Sources */,
 			);
