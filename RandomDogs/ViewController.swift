@@ -13,12 +13,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var imageDog: UIImageView!
     @IBOutlet weak var dogLabel: UILabel!
-    @IBOutlet weak var Button: UIButton!
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var discriptionTF: UITextField!
-    
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var buyButton: UIButton!
-    
+    @IBOutlet weak var viewCaterry: UIButton!
     
     var dogs1: [UIImage?] = [] {
         didSet {
@@ -33,15 +32,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         dogLabel.layer.masksToBounds = true
         dogLabel.layer.cornerRadius = 12
         
-        Button.layer.masksToBounds = true
-        Button.layer.cornerRadius = 12
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 12
+        
+        buyButton.layer.masksToBounds = true
+        buyButton.layer.cornerRadius = 12
         
         detailButton.layer.masksToBounds = true
         detailButton.layer.cornerRadius = 12
+        
+        viewCaterry.layer.masksToBounds = true
+        viewCaterry.layer.cornerRadius = 12
     }
     
     @IBAction func tappedButton(_ sender: UIButton) {
@@ -51,7 +56,7 @@ class ViewController: UIViewController {
         discriptionTF.text = ""
         buyButton.isHidden = false
         
-        NetworkManager.shared.fetchRandomDog(from: "https://dog.ceo/api/breeds/image/random") { DogRandomResult in
+        NetworkManager.shared.fetchRandomDog(from: URLS.urlStringRandom.rawValue) { DogRandomResult in
             guard let randomDog = DogRandomResult else { return }
             self.randomDog = randomDog
         }
@@ -107,6 +112,5 @@ class ViewController: UIViewController {
         tableVC.dogDescription2 = dogDiscriptions
         navigationController?.pushViewController(tableVC, animated: true)
     }
-    
 }
 

@@ -41,7 +41,7 @@ class NetworkManager {
     }
     
     func fetchBreedDog(from url: String?, with completion: @escaping (DogsBreed?) -> Void) {
-        
+        print("here")
         guard let url = URL(string: url ?? "") else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
@@ -57,15 +57,13 @@ class NetworkManager {
                 let dogsBreed = try JSONDecoder().decode(DogsBreed.self, from: data)
                 DispatchQueue.main.async {
                     completion(dogsBreed)
-                    print("Have Parsed")
-                    print(dogsBreed.status )}
+                    print("Have Parsed")}
             } catch let error {
                 print("Somthing Wrong")
                 print(error.localizedDescription)
             }
         }.resume()
     }
-    
 }
 
 

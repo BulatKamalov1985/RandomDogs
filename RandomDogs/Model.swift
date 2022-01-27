@@ -17,3 +17,8 @@ struct DogsBreed: Codable {
     let status: String
 }
 
+enum URLS: String {
+    case urlStringRandom = "https://dog.ceo/api/breeds/image/random"
+    case urlStringBreed = "https://dog.ceo/api/breed/beagle/images"
+}
+
