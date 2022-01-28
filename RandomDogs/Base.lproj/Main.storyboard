@@ -145,7 +145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Выбери породу" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oGU-Ab-8G0">
-                                <rect key="frame" x="16" y="405" width="358" height="34"/>
+                                <rect key="frame" x="16" y="407.66666666666669" width="358" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -154,10 +154,10 @@
                         <viewLayoutGuide key="safeArea" id="H2W-xs-bZt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="oGU-Ab-8G0" firstAttribute="centerY" secondItem="H2W-xs-bZt" secondAttribute="centerY" id="BgY-eu-DyP"/>
+                            <constraint firstItem="oGU-Ab-8G0" firstAttribute="centerX" secondItem="H2W-xs-bZt" secondAttribute="centerX" id="P4G-SS-iS2"/>
                             <constraint firstItem="oGU-Ab-8G0" firstAttribute="leading" secondItem="H2W-xs-bZt" secondAttribute="leading" constant="16" id="PWF-vD-IKY"/>
-                            <constraint firstItem="oGU-Ab-8G0" firstAttribute="top" secondItem="H2W-xs-bZt" secondAttribute="top" constant="317" id="SLf-F7-bLt"/>
                             <constraint firstItem="H2W-xs-bZt" firstAttribute="trailing" secondItem="oGU-Ab-8G0" secondAttribute="trailing" constant="16" id="qN5-du-SFd"/>
-                            <constraint firstItem="H2W-xs-bZt" firstAttribute="bottom" secondItem="oGU-Ab-8G0" secondAttribute="bottom" constant="322" id="tPi-LM-AAk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vv6-E8-A2G"/>
@@ -196,6 +196,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tye-X0-lsc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2405" y="891"/>
+        </scene>
+        <!--Web View Contoller-->
+        <scene sceneID="MTt-B7-AGO">
+            <objects>
+                <viewController storyboardIdentifier="WebViewContoller" id="g0K-Ve-Du8" customClass="WebViewContoller" customModule="RandomDogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1TB-Zl-vdZ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQv-Bs-BRg">
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="w5X-Gi-C6x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w5X-Gi-C6x" firstAttribute="trailing" secondItem="uQv-Bs-BRg" secondAttribute="trailing" id="76r-rj-aLt"/>
+                            <constraint firstItem="uQv-Bs-BRg" firstAttribute="top" secondItem="w5X-Gi-C6x" secondAttribute="top" id="H1g-GB-d46"/>
+                            <constraint firstItem="uQv-Bs-BRg" firstAttribute="leading" secondItem="w5X-Gi-C6x" secondAttribute="leading" id="X6d-BH-XHt"/>
+                            <constraint firstItem="w5X-Gi-C6x" firstAttribute="bottom" secondItem="uQv-Bs-BRg" secondAttribute="bottom" id="Ysn-PE-0MG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="uQv-Bs-BRg" id="W1X-4S-fd5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8nR-c6-52c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3177" y="891"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="GkW-8M-Fex">

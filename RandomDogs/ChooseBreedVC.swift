@@ -11,7 +11,6 @@ class ChooseBreedVC: UIViewController {
     
     @IBOutlet weak var breedChooseTF: UITextField!
     
-    
     var breedString: String = "" {
         didSet {
             passBreedToCollectionView()
@@ -34,8 +33,6 @@ class ChooseBreedVC: UIViewController {
         pickerView.dataSource = self
         breedChooseTF.inputView = pickerView
     }
-
-    
     
     func passBreedToCollectionView() {
         guard let BreedCollectionVC = storyboard?.instantiateViewController(withIdentifier: "BreedCollectionVC") as? BreedCollectionVC else { return }

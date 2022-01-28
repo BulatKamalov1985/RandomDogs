@@ -32,6 +32,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNavigationBar()
       
         dogLabel.layer.masksToBounds = true
         dogLabel.layer.cornerRadius = 12
@@ -86,6 +88,22 @@ class ViewController: UIViewController {
                 self?.imageDog.image = image
             }
         }.resume()
+    }
+    
+    private func setupNavigationBar() {
+        title = "My lovely dogs"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        navBarAppearance.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 194/255)
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        
     }
     
     @IBAction func addFromVCToTVC(_ sender: UIButton) {

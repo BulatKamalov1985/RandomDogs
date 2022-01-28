@@ -6,9 +6,12 @@
 //
 
 import UIKit
-
+import CoreData
 
 class FirstTableViewController: UITableViewController {
+    
+    private let context = (UIApplication.shared.delegate as! StorageManager).persistentContainer.viewContext
+
     
     var dogs: [UIImage?] = []
     var dogDescription2: [String?] = []
@@ -17,8 +20,7 @@ class FirstTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.reloadData()
+        setupNavigationBar()
     }
 
     // MARK: - Table view data source
@@ -62,4 +64,27 @@ class FirstTableViewController: UITableViewController {
         }
        return [saleAction]
     }
+    
+    private func save() {
+        guard  let entityDescription = NSEntityDescription.entity(forEntityName: "FavoriteDog", in: context) else { return }
+        
+    }
+    
+    private func setupNavigationBar() {
+        title = "My Caterry"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        navBarAppearance.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 194/255)
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.tintColor = .white
+
+    }
+    
 }

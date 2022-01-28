@@ -11,6 +11,7 @@
 		392014F3279FFB49009134A4 /* BreedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392014F1279FFB49009134A4 /* BreedCell.swift */; };
 		392014F4279FFB49009134A4 /* BreedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392014F2279FFB49009134A4 /* BreedCell.xib */; };
 		392014F627A18C8E009134A4 /* ChooseBreedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392014F527A18C8D009134A4 /* ChooseBreedVC.swift */; };
+		392014F827A26B90009134A4 /* WebViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392014F727A26B8F009134A4 /* WebViewContoller.swift */; };
 		39476A91278ECEB6009E7D4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A90278ECEB6009E7D4D /* AppDelegate.swift */; };
 		39476A93278ECEB6009E7D4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A92278ECEB6009E7D4D /* SceneDelegate.swift */; };
 		39476A95278ECEB6009E7D4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A94278ECEB6009E7D4D /* ViewController.swift */; };
@@ -23,6 +24,8 @@
 		39476AAC278ED241009E7D4D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476AAB278ED241009E7D4D /* NetworkManager.swift */; };
 		39476AAE27943150009E7D4D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476AAD27943150009E7D4D /* TableViewController.swift */; };
 		39476AB527999518009E7D4D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476AB327999518009E7D4D /* CustomTableViewCell.swift */; };
+		39FABDD427A33B8400447161 /* DogCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FABDD327A33B8400447161 /* DogCache.swift */; };
+		39FABDD627A3F5DE00447161 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FABDD527A3F5DE00447161 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,7 @@
 		392014F1279FFB49009134A4 /* BreedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCell.swift; sourceTree = "<group>"; };
 		392014F2279FFB49009134A4 /* BreedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedCell.xib; sourceTree = "<group>"; };
 		392014F527A18C8D009134A4 /* ChooseBreedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBreedVC.swift; sourceTree = "<group>"; };
+		392014F727A26B8F009134A4 /* WebViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContoller.swift; sourceTree = "<group>"; };
 		39476A8D278ECEB6009E7D4D /* RandomDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39476A90278ECEB6009E7D4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39476A92278ECEB6009E7D4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		39476AAB278ED241009E7D4D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		39476AAD27943150009E7D4D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		39476AB327999518009E7D4D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		39FABDD327A33B8400447161 /* DogCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCache.swift; sourceTree = "<group>"; };
+		39FABDD527A3F5DE00447161 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +88,14 @@
 				39476AAB278ED241009E7D4D /* NetworkManager.swift */,
 				39476A94278ECEB6009E7D4D /* ViewController.swift */,
 				39476AA7278ED129009E7D4D /* DetailViewController.swift */,
-				392014EB279EB3EF009134A4 /* BreedCollectionVC.swift */,
 				39476AAD27943150009E7D4D /* TableViewController.swift */,
+				392014EB279EB3EF009134A4 /* BreedCollectionVC.swift */,
 				392014F527A18C8D009134A4 /* ChooseBreedVC.swift */,
+				392014F727A26B8F009134A4 /* WebViewContoller.swift */,
+				39FABDD527A3F5DE00447161 /* StorageManager.swift */,
 				39476A96278ECEB6009E7D4D /* Main.storyboard */,
 				392014F1279FFB49009134A4 /* BreedCell.swift */,
+				39FABDD327A33B8400447161 /* DogCache.swift */,
 				392014F2279FFB49009134A4 /* BreedCell.xib */,
 				39476AB327999518009E7D4D /* CustomTableViewCell.swift */,
 				39476A9C278ECEB9009E7D4D /* Assets.xcassets */,
@@ -174,11 +183,14 @@
 				392014F3279FFB49009134A4 /* BreedCell.swift in Sources */,
 				39476A9B278ECEB6009E7D4D /* RandomDogs.xcdatamodeld in Sources */,
 				39476AA8278ED129009E7D4D /* DetailViewController.swift in Sources */,
+				39FABDD427A33B8400447161 /* DogCache.swift in Sources */,
+				392014F827A26B90009134A4 /* WebViewContoller.swift in Sources */,
 				39476AAE27943150009E7D4D /* TableViewController.swift in Sources */,
 				39476AAC278ED241009E7D4D /* NetworkManager.swift in Sources */,
 				39476AAA278ED149009E7D4D /* Model.swift in Sources */,
 				392014EC279EB3EF009134A4 /* BreedCollectionVC.swift in Sources */,
 				39476A91278ECEB6009E7D4D /* AppDelegate.swift in Sources */,
+				39FABDD627A3F5DE00447161 /* StorageManager.swift in Sources */,
 				392014F627A18C8E009134A4 /* ChooseBreedVC.swift in Sources */,
 				39476A93278ECEB6009E7D4D /* SceneDelegate.swift in Sources */,
 			);

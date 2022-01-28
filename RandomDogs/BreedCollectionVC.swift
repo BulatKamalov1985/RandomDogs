@@ -13,7 +13,7 @@ class BreedCollectionVC: UICollectionViewController {
     
     var breedString: String = "" {
         didSet {
-            print("hbihkj" + breedString)
+            print("Такая вот порода " + breedString)
         }
     }
    
@@ -53,6 +53,12 @@ class BreedCollectionVC: UICollectionViewController {
             return cell
         }
         return UICollectionViewCell()
+    }
+    
+    override func collectionView(_: UICollectionView, didSelectItemAt: IndexPath) {
+        guard let webView = storyboard?.instantiateViewController(withIdentifier: "WebViewContoller") as? WebViewContoller else { return }
+        webView.urlString = "https://en.wikipedia.org/wiki/\(breedString)"
+        navigationController?.showDetailViewController(webView, sender: nil)
     }
 }
 
