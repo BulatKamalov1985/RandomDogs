@@ -6,21 +6,25 @@
 //
 
 import UIKit
-import CoreData
 
 class FirstTableViewController: UITableViewController {
     
-    private let context = (UIApplication.shared.delegate as! StorageManager).persistentContainer.viewContext
-
-    
-    var dogs: [UIImage?] = []
-    var dogDescription2: [String?] = []
-    var imageTVC: UIImage?
-    var textAboutDog: String?
+    var dogs: [DogDataModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateDogs()
+    }
+    
+    func updateDogs() {
+        dogs = StorageManager.shared.fetchDogs()
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -33,24 +37,27 @@ class FirstTableViewController: UITableViewController {
         return dogs.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "Cell", for: indexPath
+        ) as! CustomTableViewCell
         
-        cell.imageCustomCell.image = dogs[indexPath.row]
-        cell.labelCustomCell.text = dogDescription2[indexPath.row]
-        cell.imageCustomCell.layer.cornerRadius = cell.imageCustomCell.frame.height / 2
-        cell.imageCustomCell.contentMode = .scaleToFill
-        cell.imageCustomCell.clipsToBounds = true
+        cell.customize(with: dogs[indexPath.row])
+
         return cell
     }
     
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "VC2") as? DetailViewController else { return }
-        detailVC.detailImage = dogs[indexPath.row]
-        detailVC.dogDetailName = dogDescription2[indexPath.row]
+        func customize(with dog: DogDataModel) {
+            if let data = dog.image {
+                detailVC.detailImage = UIImage(data: data)
+            }
+            detailVC.dogDetailName = dog.title
+        }
+        customize(with: dogs[indexPath.row])
         navigationController?.pushViewController(detailVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -58,18 +65,23 @@ class FirstTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let saleAction = UITableViewRowAction(style: .destructive, title: "Продать") { _, indexPath in
-            self.dogs.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        let saleAction = UITableViewRowAction(
+            style: .destructive,
+            title: "Продать"
+        ) { [weak self] _, indexPath in
+            guard let self = self else { return }
+
+            do {
+                try StorageManager.shared.delete(dog: self.dogs[indexPath.row])
+                self.updateDogs()
+            } catch {
+                print(error.localizedDescription)
+            }
         }
-       return [saleAction]
-    }
-    
-    private func save() {
-        guard  let entityDescription = NSEntityDescription.entity(forEntityName: "FavoriteDog", in: context) else { return }
         
+        return [saleAction]
     }
-    
+
     private func setupNavigationBar() {
         title = "My Caterry"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -80,11 +92,9 @@ class FirstTableViewController: UITableViewController {
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-        navBarAppearance.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 194/255)
+        navBarAppearance.backgroundColor = UIColor(displayP3Red: 146/255, green: 200/255, blue: 252/255, alpha: 255/255)
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         navigationController?.navigationBar.tintColor = .white
-
     }
-    
 }
