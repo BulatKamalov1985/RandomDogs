@@ -28,6 +28,11 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Собачий фон")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        setupNavigationBar()
         optionOneButton.layer.masksToBounds = true
         optionOneButton.layer.cornerRadius = 12
         optionTwoButton.layer.masksToBounds = true
@@ -36,11 +41,28 @@ class QuizViewController: UIViewController {
         optionThreeButton.layer.cornerRadius = 12
         optionFourButton.layer.masksToBounds = true
         optionFourButton.layer.cornerRadius = 12
+        dogImageView.layer.masksToBounds = true
+        dogImageView.layer.cornerRadius = 12
         updateUI()
         updateQuestion()
         
     }
     
+    private func setupNavigationBar() {
+        title = "Dog Quiz"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        navBarAppearance.backgroundColor = UIColor(displayP3Red: 146/255, green: 200/255, blue: 252/255, alpha: 255/255)
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.tintColor = .white
+    }
     
     @IBAction func answerPassed(_ sender: UIButton) {
         if sender.tag == selectedAnswer {

@@ -17,12 +17,14 @@ class ChooseBreedVC: UIViewController {
         }
     }
     
-    let breeds = ["affenpinscher", "african", "airedale", "akita", "appenzeller", "australian", "shepherd", "basenji", "beagle", "bluetick", "borzoi", "bouvier", "boxer", "brabancon", "briard", "buhund", "norwegian", "bulldog", "bullterrier", "cattledog", "chihuahua", "chow", "clumber", "cockapoo", "collie", "coonhound", "corgi", "cotondetulear", "dachshund", "dalmatian", "dane dog", "dhole", "dingo", "doberman", "elkhound", "entlebucher", "eskimo", "finnish", "husky","keeshond","kelpie", "komondor", "kuvasz", "labradoodle", "labrador", "leonberg", "lhasa","malamute","malinois", "maltese", "mastiff","mexicanhairless", "mix", "mountain", "newfoundland", "otterhound", "ovcharka", "papillon", "pekinese", "pembroke", "pinscher"]
+    let breeds = BreedBank()
     
     var pickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNavigationBar()
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "Собачий фон")
@@ -40,10 +42,24 @@ class ChooseBreedVC: UIViewController {
         navigationController?.pushViewController(BreedCollectionVC, animated: true)
     }
     
+    private func setupNavigationBar() {
+        title = "Choose Breed"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        navBarAppearance.backgroundColor = UIColor(displayP3Red: 146/255, green: 200/255, blue: 252/255, alpha: 255/255)
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.tintColor = .white
+    }
+    
    
 }
-
-
 
 extension ChooseBreedVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -52,16 +68,16 @@ extension ChooseBreedVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return breeds.count
+        return breeds.breedList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return breeds[row]
+        return breeds.breedList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        breedChooseTF.text = breeds[row]
-        breedString = breeds[row]
+        breedChooseTF.text = breeds.breedList[row]
+        breedString = breeds.breedList[row]
         breedChooseTF.resignFirstResponder()
     }
 }

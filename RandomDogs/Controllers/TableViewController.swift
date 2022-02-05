@@ -13,7 +13,6 @@ class FirstTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupNavigationBar()
     }
     

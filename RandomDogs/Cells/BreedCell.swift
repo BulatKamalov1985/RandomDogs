@@ -11,8 +11,7 @@ class BreedCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
         
-    func uploadImageFromUrlTwo(_ stringURL: String) {
-        
+    func uploadImageFromUrl(_ stringURL: String) {
         if let cacheImaged = DogCache.shared.cache.object(forKey: stringURL as NSString) {
             self.imageView.image = cacheImaged
         } else {

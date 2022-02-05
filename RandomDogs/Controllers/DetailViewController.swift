@@ -7,16 +7,20 @@
 
 import UIKit
 
-typealias Closure = (String?) -> ()
+
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet weak var dogDetailNameLabel: UILabel!
+    @IBOutlet weak var dogDetailNameLabel: UILabel! {
+        didSet {
+            dogDetailNameLabel.layer.masksToBounds = true
+            dogDetailNameLabel.layer.cornerRadius = 12
+        }
+    }
     @IBOutlet weak var detailImageOutlet: UIImageView!
     
     var detailImage: UIImage?
     var dogDetailName: String?
-    var closure: Closure?
     
 
     override func viewDidLoad() {

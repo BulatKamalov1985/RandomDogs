@@ -7,65 +7,67 @@
 
 import UIKit
 
-typealias Clouser2 = ([UIImage]) -> [UIImage]
-
 class ViewController: UIViewController {
     
-    @IBOutlet weak var imageDog: UIImageView!
-    @IBOutlet weak var dogLabel: UILabel!
-    @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var discriptionTF: UITextField!
-    @IBOutlet weak var detailButton: UIButton!
-    @IBOutlet weak var buyButton: UIButton!
-    @IBOutlet weak var viewCaterry: UIButton!
-    
-    var dogs1: [UIImage?] = [] {
+    @IBOutlet weak var imageDog: UIImageView! {
         didSet {
-            print(dogs1.count)
+            imageDog.layer.masksToBounds = true
+            imageDog.layer.cornerRadius = 12
         }
     }
     
-    var current: DogRandom? {
-        willSet {
-            
+    @IBOutlet weak var descriptionLabel: UILabel! {
+        didSet {
+            descriptionLabel.layer.masksToBounds = true
+            descriptionLabel.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var getRandomDogButton: UIButton! {
+        didSet {
+            getRandomDogButton.layer.masksToBounds = true
+            getRandomDogButton.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var dogsNameTF: UITextField! {
+        didSet {
+            dogsNameTF.layer.masksToBounds = true
+            dogsNameTF.layer.cornerRadius = 12
         }
     }
     
-    var dogDiscriptions: [String?] = []
-    var clouser2: Clouser2?
-    var randomDog: DogRandom?
-    var randomInt = Int.random(in: 1000...100000)
+    @IBOutlet weak var detailButton: UIButton! {
+        didSet {
+            detailButton.layer.masksToBounds = true
+            detailButton.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var buyButton: UIButton! {
+        didSet {
+            buyButton.layer.masksToBounds = true
+            buyButton.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var viewCaterry: UIButton! {
+        didSet {
+            viewCaterry.layer.masksToBounds = true
+            viewCaterry.layer.cornerRadius = 12
+        }
+    }
+    
+    var dogRandom: DogRandom?
+    
     let dogDescriptionList: [String] = ["Aктивный", "Aмбициозный", "Жаждущий внимания", "Жизнерадостный", "Творческий", "Любопытный", "Решительный", "Устремленный", "Энергичный", "Дружелюбный", "Тудолюбивый", "Полезный", "Скромный", "Терпеливый", "Застенчивый", "Серьезный", "Хвастливый", "Непредсказуемый", "Осторожный", "Приветливый", "Скучный", "Уравновешенный", "Непокорный", "Послушный", "Неряха"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NetworkManager.shared.fetchRandomDog(from: URLS.urlStringRandom.rawValue) { DogRandomResult in
-            guard let randomDog = DogRandomResult else { return }
-            self.randomDog = randomDog
-        }
-        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Собачий фон")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        fetchRandomDogFromNetworkManager()
         setupNavigationBar()
-        
-        imageDog.layer.masksToBounds = true
-        imageDog.layer.cornerRadius = 12
-      
-        dogLabel.layer.masksToBounds = true
-        dogLabel.layer.cornerRadius = 12
-        
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = 12
-        
-        buyButton.layer.masksToBounds = true
-        buyButton.layer.cornerRadius = 12
-        
-        detailButton.layer.masksToBounds = true
-        detailButton.layer.cornerRadius = 12
-        
-        viewCaterry.layer.masksToBounds = true
-        viewCaterry.layer.cornerRadius = 12
     }
-    
     
     private func setupNavigationBar() {
         title = "My lovely dogs"
@@ -83,7 +85,7 @@ class ViewController: UIViewController {
         
     }
     
-    func uploadImageFromUrl(_ stringUrl: String?) {
+    private func uploadImageFromUrl(_ stringUrl: String?) {
         guard let stringUrl = stringUrl,
               let url = URL(string: stringUrl)
         else {
@@ -100,75 +102,64 @@ class ViewController: UIViewController {
         }.resume()
     }
     
-    
-    @IBAction func tappedButton(_ sender: UIButton) {
-        uploadImageFromUrl(randomDog?.message)
-        dogLabel.text = dogDescriptionList.randomElement()
-        discriptionTF.text = ""
-        buyButton.isHidden = false
+    private func fetchRandomDogFromNetworkManager() {
         NetworkManager.shared.fetchRandomDog(from: URLS.urlStringRandom.rawValue) { DogRandomResult in
             guard let randomDog = DogRandomResult else { return }
-            self.randomDog = randomDog
+            self.dogRandom = randomDog
         }
+    }
+    
+    private func createDogDataModelFromStorageManager() {
+        if let image = imageDog.image, let title = dogsNameTF.text {
+            do {
+                try StorageManager.shared.createDogDataModel(
+                    with: title,
+                    image: image,
+                    needToSave: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    @IBAction func tappedButton(_ sender: UIButton) {
+        fetchRandomDogFromNetworkManager()
+        uploadImageFromUrl(dogRandom?.message)
+        descriptionLabel.text = dogDescriptionList.randomElement()
+        dogsNameTF.text = ""
+        buyButton.isHidden = false
     }
     
     @IBAction func detailButtonAction(_ sender: Any) {
         guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "VC2") as? DetailViewController else { return }
         detailVC.detailImage = imageDog.image
-        detailVC.closure = {[weak self] text in
-            self?.dogLabel.text = text
-        }
+        detailVC.dogDetailName = descriptionLabel.text
         navigationController?.pushViewController(detailVC, animated: true)
     }
-   
-    @IBAction func addFromVCToTVC(_ sender: UIButton) {
-        if discriptionTF.text == "" {
-            discriptionTF.text = "Безымянная псина"
-            if let image = imageDog.image, let title = discriptionTF.text {
-                do {
-                    try StorageManager.shared.createDogDataModel(
-                        with: title,
-                        image: image,
-                        needToSave: true)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-            
-        } else {
-            if let image = imageDog.image, let title = discriptionTF.text {
-                do {
-                    try StorageManager.shared.createDogDataModel(
-                        with: title,
-                        image: image,
-                        needToSave: true
-                    )
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-
-        }
     
+    @IBAction func addFromVCToTVC(_ sender: UIButton) {
+        if dogsNameTF.text == "" {
+            dogsNameTF.text = "Безымянная собака"
+            createDogDataModelFromStorageManager()
+        } else {
+            createDogDataModelFromStorageManager()
+        }
+        
         if buyButton.isTouchInside == true {
             buyButton.isHidden = true
         } else {
             return
         }
-
-       
-
-        discriptionTF.text = ""
+        dogsNameTF.text = ""
     }
     
     @IBAction func goToTableView(_ sender: UIButton) {
         guard let tableVC = storyboard?.instantiateViewController(
             withIdentifier: "tableVC"
         ) as? FirstTableViewController else { return }
-
+        
         navigationController?.pushViewController(tableVC, animated: true)
     }
-    
     
 }
 

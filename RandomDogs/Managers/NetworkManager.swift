@@ -31,7 +31,7 @@ class NetworkManager {
                 DispatchQueue.main.async {
                     completion(randomDog)
                     print("Have Parsed")
-                    print(randomDog.status ?? "")}
+                    }
             } catch let error {
                 print("Somthing Wrong")
                 print(error.localizedDescription)
