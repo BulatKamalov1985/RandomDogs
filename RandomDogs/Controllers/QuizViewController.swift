@@ -11,10 +11,7 @@ class QuizViewController: UIViewController {
     
     @IBOutlet weak var questionCounter: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var dogImageView: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
     
     @IBOutlet weak var optionOneButton: UIButton!
     @IBOutlet weak var optionTwoButton: UIButton!
@@ -32,7 +29,7 @@ class QuizViewController: UIViewController {
         backgroundImage.image = UIImage(named: "Собачий фон")
         backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
-        setupNavigationBar()
+        setupNavigationBar(navTitle: "Dog Quiz")
         optionOneButton.layer.masksToBounds = true
         optionOneButton.layer.cornerRadius = 12
         optionTwoButton.layer.masksToBounds = true
@@ -48,21 +45,6 @@ class QuizViewController: UIViewController {
         
     }
     
-    private func setupNavigationBar() {
-        title = "Dog Quiz"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.configureWithOpaqueBackground()
-        
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        navBarAppearance.backgroundColor = UIColor(displayP3Red: 146/255, green: 200/255, blue: 252/255, alpha: 255/255)
-        navigationController?.navigationBar.standardAppearance = navBarAppearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        navigationController?.navigationBar.tintColor = .white
-    }
     
     @IBAction func answerPassed(_ sender: UIButton) {
         if sender.tag == selectedAnswer {
@@ -78,7 +60,6 @@ class QuizViewController: UIViewController {
     func updateQuestion() {
         if questionNumber <= allQuestions.list.count - 1 {
             dogImageView.image = UIImage(named: (allQuestions.list[questionNumber].questionImage))
-            descriptionLabel.text = allQuestions.list[questionNumber].question
             optionOneButton.setTitle(allQuestions.list[questionNumber].optionOne, for: .normal)
             optionTwoButton.setTitle(allQuestions.list[questionNumber].optionTwo, for: .normal)
             optionThreeButton.setTitle(allQuestions.list[questionNumber].optionThree, for: .normal)
@@ -98,7 +79,6 @@ class QuizViewController: UIViewController {
     func updateUI() {
         scoreLabel.text = "\(score)"
         questionCounter.text = "\(questionNumber + 1)/\(allQuestions.list.count + 1)"
-        progressView.frame.size.width = (view.frame.size.width / CGFloat(allQuestions.list.count)) * CGFloat(questionNumber + 1)
     }
     
     func restartQuiz() {

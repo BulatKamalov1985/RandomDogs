@@ -25,9 +25,8 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar(navTitle: "Detail dog")
         detailImageOutlet.image = detailImage
         dogDetailNameLabel.text = dogDetailName
     }
-    
-  
 }

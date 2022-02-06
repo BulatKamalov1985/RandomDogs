@@ -35,7 +35,7 @@ class BreedCollectionVC: UICollectionViewController {
         super.viewDidLoad()
         
         
-        setupNavigationBar()
+        setupNavigationBar(navTitle: "\(breedStringForCapitalize)")
             
         collectionView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         
@@ -46,21 +46,7 @@ class BreedCollectionVC: UICollectionViewController {
         }
     }
     
-    private func setupNavigationBar() {
-        title = "\(breedStringForCapitalize)"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.configureWithOpaqueBackground()
-        
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        navBarAppearance.backgroundColor = UIColor(displayP3Red: 146/255, green: 200/255, blue: 252/255, alpha: 255/255)
-        navigationController?.navigationBar.standardAppearance = navBarAppearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        navigationController?.navigationBar.tintColor = .white
-    }
+    
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

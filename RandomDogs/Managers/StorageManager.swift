@@ -69,6 +69,5 @@ extension StorageManager: StorageManagerInterface {
     func edit(dog: DogDataModel, newname: String) throws {
         dog.title = newname
         try saveContext()
-
     }
 }

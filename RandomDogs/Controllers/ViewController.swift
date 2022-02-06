@@ -66,25 +66,9 @@ class ViewController: UIViewController {
         backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         fetchRandomDogFromNetworkManager()
-        setupNavigationBar()
+        setupNavigationBar(navTitle: "My lovely dogs")
     }
-    
-    private func setupNavigationBar() {
-        title = "My lovely dogs"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.configureWithOpaqueBackground()
-        
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        navBarAppearance.backgroundColor = UIColor(displayP3Red: 146/255, green: 200/255, blue: 252/255, alpha: 255/255)
-        navigationController?.navigationBar.standardAppearance = navBarAppearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        
-    }
-    
+
     private func uploadImageFromUrl(_ stringUrl: String?) {
         guard let stringUrl = stringUrl,
               let url = URL(string: stringUrl)
@@ -102,6 +86,8 @@ class ViewController: UIViewController {
         }.resume()
     }
     
+    
+   
     private func fetchRandomDogFromNetworkManager() {
         NetworkManager.shared.fetchRandomDog(from: URLS.urlStringRandom.rawValue) { DogRandomResult in
             guard let randomDog = DogRandomResult else { return }
