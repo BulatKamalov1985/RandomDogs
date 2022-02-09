@@ -33,10 +33,8 @@ class BreedCollectionVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         setupNavigationBar(navTitle: "\(breedStringForCapitalize)")
-            
+        
         collectionView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         
         NetworkManager.shared.fetchBreedDog(from: "https://dog.ceo/api/breed/\(breedString)/images") { resultDogBreed in
@@ -51,7 +49,7 @@ class BreedCollectionVC: UICollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
@@ -69,14 +67,14 @@ class BreedCollectionVC: UICollectionViewController {
         webView.urlString = "https://en.wikipedia.org/wiki/\(breedString)"
         navigationController?.showDetailViewController(webView, sender: nil)
     }
-   
+    
 }
 
 extension String {
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }
-
+    
     mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
     }

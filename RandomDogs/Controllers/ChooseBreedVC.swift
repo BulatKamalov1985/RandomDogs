@@ -17,19 +17,16 @@ class ChooseBreedVC: UIViewController {
         }
     }
     
-    let breeds = BreedBank()
+    var breeds = BreedBank()
     
     var pickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        breeds.breedList.sort()
         setupNavigationBar(navTitle: "Choose Breed")
-        
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Собачий фон")
-        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
+        setupBackgroundImage()
         
         pickerView.delegate = self
         pickerView.dataSource = self

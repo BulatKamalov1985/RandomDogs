@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+
     
     @IBOutlet weak var imageDog: UIImageView! {
         didSet {
@@ -55,16 +56,15 @@ class ViewController: UIViewController {
     }
     
     var dogRandom: DogRandom?
-    
-    let dogDescriptionList: [String] = ["Aктивный", "Aмбициозный", "Жаждущий внимания", "Жизнерадостный", "Творческий", "Любопытный", "Решительный", "Устремленный", "Энергичный", "Дружелюбный", "Тудолюбивый", "Полезный", "Скромный", "Терпеливый", "Застенчивый", "Серьезный", "Хвастливый", "Непредсказуемый", "Осторожный", "Приветливый", "Скучный", "Уравновешенный", "Непокорный", "Послушный", "Неряха"]
+    var dogDescription = DescriptionDogsBank()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Собачий фон")
-        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
+        
+      
+        
+        setupBackgroundImage()
         fetchRandomDogFromNetworkManager()
         setupNavigationBar(navTitle: "My lovely dogs")
     }
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         }.resume()
     }
     
-    
+
    
     private func fetchRandomDogFromNetworkManager() {
         NetworkManager.shared.fetchRandomDog(from: URLS.urlStringRandom.rawValue) { DogRandomResult in
@@ -111,7 +111,7 @@ class ViewController: UIViewController {
     @IBAction func tappedButton(_ sender: UIButton) {
         fetchRandomDogFromNetworkManager()
         uploadImageFromUrl(dogRandom?.message)
-        descriptionLabel.text = dogDescriptionList.randomElement()
+        descriptionLabel.text = dogDescription.dogDescriptionList.randomElement()
         dogsNameTF.text = ""
         buyButton.isHidden = false
     }

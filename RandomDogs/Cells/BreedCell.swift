@@ -27,7 +27,7 @@ class BreedCell: UICollectionViewCell {
                     guard let self = self else { return }
                     guard let image = UIImage(data: data) else { return }
                     DogCache.shared.cache.setObject(image, forKey: stringURL as NSString)
-                    print("gg")
+                    print("OK")
                     self.imageView.image = image
                 }
             }.resume()

@@ -12,8 +12,9 @@
 		392014F4279FFB49009134A4 /* BreedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392014F2279FFB49009134A4 /* BreedCell.xib */; };
 		392014F627A18C8E009134A4 /* ChooseBreedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392014F527A18C8D009134A4 /* ChooseBreedVC.swift */; };
 		392014F827A26B90009134A4 /* WebViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392014F727A26B8F009134A4 /* WebViewContoller.swift */; };
+		3934821527B1318A004EE4E9 /* DescriptionDogsBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3934821427B1318A004EE4E9 /* DescriptionDogsBank.swift */; };
 		394450BD27AE6471004B2107 /* BreedBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394450BC27AE6471004B2107 /* BreedBank.swift */; };
-		394450BF27AFCF00004B2107 /* SetupNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394450BE27AFCF00004B2107 /* SetupNavigationBar.swift */; };
+		394450BF27AFCF00004B2107 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394450BE27AFCF00004B2107 /* Extensions.swift */; };
 		39476A91278ECEB6009E7D4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A90278ECEB6009E7D4D /* AppDelegate.swift */; };
 		39476A93278ECEB6009E7D4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A92278ECEB6009E7D4D /* SceneDelegate.swift */; };
 		39476A95278ECEB6009E7D4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A94278ECEB6009E7D4D /* ViewController.swift */; };
@@ -41,8 +42,9 @@
 		392014F2279FFB49009134A4 /* BreedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedCell.xib; sourceTree = "<group>"; };
 		392014F527A18C8D009134A4 /* ChooseBreedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBreedVC.swift; sourceTree = "<group>"; };
 		392014F727A26B8F009134A4 /* WebViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContoller.swift; sourceTree = "<group>"; };
+		3934821427B1318A004EE4E9 /* DescriptionDogsBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionDogsBank.swift; sourceTree = "<group>"; };
 		394450BC27AE6471004B2107 /* BreedBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedBank.swift; sourceTree = "<group>"; };
-		394450BE27AFCF00004B2107 /* SetupNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNavigationBar.swift; sourceTree = "<group>"; };
+		394450BE27AFCF00004B2107 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		39476A8D278ECEB6009E7D4D /* RandomDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39476A90278ECEB6009E7D4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39476A92278ECEB6009E7D4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,7 +130,7 @@
 				39476AAB278ED241009E7D4D /* NetworkManager.swift */,
 				39FABDD527A3F5DE00447161 /* StorageManager.swift */,
 				39FABDD327A33B8400447161 /* DogCache.swift */,
-				394450BE27AFCF00004B2107 /* SetupNavigationBar.swift */,
+				394450BE27AFCF00004B2107 /* Extensions.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -151,6 +153,7 @@
 				39FABDF427A907BE00447161 /* QuestionBank.swift */,
 				394450BC27AE6471004B2107 /* BreedBank.swift */,
 				39476AA9278ED149009E7D4D /* Model.swift */,
+				3934821427B1318A004EE4E9 /* DescriptionDogsBank.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -253,8 +256,9 @@
 				39FABDF327A9070700447161 /* QuestionModel.swift in Sources */,
 				392014F3279FFB49009134A4 /* BreedCell.swift in Sources */,
 				39476A9B278ECEB6009E7D4D /* RandomDogs.xcdatamodeld in Sources */,
-				394450BF27AFCF00004B2107 /* SetupNavigationBar.swift in Sources */,
+				394450BF27AFCF00004B2107 /* Extensions.swift in Sources */,
 				39476AA8278ED129009E7D4D /* DetailViewController.swift in Sources */,
+				3934821527B1318A004EE4E9 /* DescriptionDogsBank.swift in Sources */,
 				39FABDD427A33B8400447161 /* DogCache.swift in Sources */,
 				392014F827A26B90009134A4 /* WebViewContoller.swift in Sources */,
 				39476AAE27943150009E7D4D /* TableViewController.swift in Sources */,

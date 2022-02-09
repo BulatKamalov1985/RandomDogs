@@ -9,6 +9,13 @@ import UIKit
 
 extension UIViewController {
     
+    func setupBackgroundImage() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Собачий фон")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+    }
+    
     func setupNavigationBar( navTitle: String?) {
         title = navTitle
         navigationController?.navigationBar.prefersLargeTitles = true

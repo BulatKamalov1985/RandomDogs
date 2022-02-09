@@ -25,10 +25,7 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Собачий фон")
-        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
+        setupBackgroundImage()
         setupNavigationBar(navTitle: "Dog Quiz")
         optionOneButton.layer.masksToBounds = true
         optionOneButton.layer.cornerRadius = 12

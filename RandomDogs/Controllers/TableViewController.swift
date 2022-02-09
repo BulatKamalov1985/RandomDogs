@@ -13,7 +13,7 @@ class FirstTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
+        setupNavigationBar(navTitle: "My Caterry")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,24 +25,24 @@ class FirstTableViewController: UITableViewController {
         dogs = StorageManager.shared.fetchDogs()
         tableView.reloadData()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dogs.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "Cell", for: indexPath
         ) as! CustomTableViewCell
         
         cell.customize(with: dogs[indexPath.row])
-
+        
         return cell
     }
     
@@ -69,7 +69,7 @@ class FirstTableViewController: UITableViewController {
             title: "Продать"
         ) { [weak self] _, indexPath in
             guard let self = self else { return }
-
+            
             do {
                 try StorageManager.shared.delete(dog: self.dogs[indexPath.row])
                 self.updateDogs()
@@ -80,20 +80,5 @@ class FirstTableViewController: UITableViewController {
         
         return [saleAction]
     }
-
-    private func setupNavigationBar() {
-        title = "My Caterry"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.configureWithOpaqueBackground()
-        
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        navBarAppearance.backgroundColor = UIColor(displayP3Red: 146/255, green: 200/255, blue: 252/255, alpha: 255/255)
-        navigationController?.navigationBar.standardAppearance = navBarAppearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        navigationController?.navigationBar.tintColor = .white
-    }
+    
 }
