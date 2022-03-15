@@ -5,10 +5,8 @@
 //  Created by Bulat Kamalov on 01.02.2022.
 //
 
-import Foundation
-
-struct Question {
-    let questionImage: String
+struct QuestionModel {
+    let ImageName: String
     let question: String
     let optionOne: String
     let optionTwo: String

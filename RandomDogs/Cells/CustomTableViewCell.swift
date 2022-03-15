@@ -14,7 +14,7 @@ class CustomTableViewCell: UITableViewCell {
     
     func customize(with dog: DogDataModel) {
         imageCustomCell.layer.cornerRadius = imageCustomCell.frame.height / 2
-        imageCustomCell.contentMode = .scaleToFill
+        imageCustomCell.contentMode = .scaleAspectFill
         imageCustomCell.clipsToBounds = true
 
         if let data = dog.image {

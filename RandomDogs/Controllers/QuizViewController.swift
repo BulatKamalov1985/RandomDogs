@@ -26,20 +26,15 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackgroundImage()
-        setupNavigationBar(navTitle: "Dog Quiz")
-        optionOneButton.layer.masksToBounds = true
-        optionOneButton.layer.cornerRadius = 12
-        optionTwoButton.layer.masksToBounds = true
-        optionTwoButton.layer.cornerRadius = 12
-        optionThreeButton.layer.masksToBounds = true
-        optionThreeButton.layer.cornerRadius = 12
-        optionFourButton.layer.masksToBounds = true
-        optionFourButton.layer.cornerRadius = 12
-        dogImageView.layer.masksToBounds = true
-        dogImageView.layer.cornerRadius = 12
+        setupNavigationBar(navTitle: "Dog Quiz".uppercased())
+        optionOneButton.roundedStyle()
+        optionTwoButton.roundedStyle()
+        optionThreeButton.roundedStyle()
+        optionFourButton.roundedStyle()
+        dogImageView.roundedStyle()
+  
         updateUI()
         updateQuestion()
-        
     }
     
     
@@ -56,7 +51,7 @@ class QuizViewController: UIViewController {
     
     func updateQuestion() {
         if questionNumber <= allQuestions.list.count - 1 {
-            dogImageView.image = UIImage(named: (allQuestions.list[questionNumber].questionImage))
+            dogImageView.image = UIImage(named: (allQuestions.list[questionNumber].ImageName))
             optionOneButton.setTitle(allQuestions.list[questionNumber].optionOne, for: .normal)
             optionTwoButton.setTitle(allQuestions.list[questionNumber].optionTwo, for: .normal)
             optionThreeButton.setTitle(allQuestions.list[questionNumber].optionThree, for: .normal)
@@ -83,5 +78,4 @@ class QuizViewController: UIViewController {
         questionNumber = 0
         updateQuestion()
     }
-    
 }

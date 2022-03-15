@@ -7,13 +7,14 @@
 
 import UIKit
 
-class FirstTableViewController: UITableViewController {
+class CaterryViewController: UITableViewController {
     
     var dogs: [DogDataModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar(navTitle: "My Caterry")
+
+        setupNavigationBar(navTitle: "My Caterry".uppercased())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,13 +28,12 @@ class FirstTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dogs.count
+        dogs.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,26 +47,30 @@ class FirstTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "VC2") as? DetailViewController else { return }
-        func customize(with dog: DogDataModel) {
-            if let data = dog.image {
-                detailVC.detailImage = UIImage(data: data)
-            }
-            detailVC.dogDetailName = dog.title
+        guard let detailVC = storyboard?.instantiateViewController(
+            withIdentifier: DetailViewController.storyboardId
+        ) as? DetailViewController else { return }
+
+        let dog = dogs[indexPath.row]
+        
+        if let data = dog.image {
+            detailVC.detailImage = UIImage(data: data)
         }
-        customize(with: dogs[indexPath.row])
+        
+        detailVC.dogDetailName = dog.title
+
         navigationController?.pushViewController(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        true
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let saleAction = UITableViewRowAction(
             style: .destructive,
-            title: "Продать"
+            title: "Sell" // Sell
         ) { [weak self] _, indexPath in
             guard let self = self else { return }
             
@@ -80,5 +84,4 @@ class FirstTableViewController: UITableViewController {
         
         return [saleAction]
     }
-    
 }

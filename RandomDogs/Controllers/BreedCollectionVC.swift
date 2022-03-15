@@ -7,19 +7,13 @@
 
 import UIKit
 
-private let reuseIdentifier = "BreedCell"
-
 class BreedCollectionVC: UICollectionViewController {
     
     var breedString: String = "" {
         didSet {
-            breedStringForCapitalize = breedString
-            breedStringForCapitalize.capitalizeFirstLetter()
             print("Такая вот порода " + breedString)
         }
     }
-    
-    var breedStringForCapitalize: String = ""
     
     var dogsBreed: DogsBreed? {
         didSet {
@@ -30,53 +24,46 @@ class BreedCollectionVC: UICollectionViewController {
     var messages: [String] {
         dogsBreed?.message.compactMap { $0 } ?? []
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar(navTitle: "\(breedStringForCapitalize)")
+
+        setupNavigationBar(navTitle: "\(breedString.localizedUppercase)")
+
+        collectionView.register(UINib(nibName: "BreedCell", bundle: nil), forCellWithReuseIdentifier: "BreedCell")
         
-        collectionView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-        
-        NetworkManager.shared.fetchBreedDog(from: "https://dog.ceo/api/breed/\(breedString)/images") { resultDogBreed in
+        NetworkManager.shared.fetchBreedDog(from: "https://dog.ceo/api/breed/\(breedString)/images") { [weak self] resultDogBreed in
             guard let dogsBreed = resultDogBreed else { return }
             print(dogsBreed.message.count)
-            self.dogsBreed = dogsBreed
+            self?.dogsBreed = dogsBreed
         }
     }
-    
-    
-    
+
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
+        messages.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? BreedCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BreedCell", for: indexPath) as? BreedCell {
+           
             cell.uploadImageFromUrl(messages[indexPath.row])
+            cell.spinnerCell.stopAnimating()
+       
             return cell
         }
+
         return UICollectionViewCell()
     }
     
     override func collectionView(_: UICollectionView, didSelectItemAt: IndexPath) {
         guard let webView = storyboard?.instantiateViewController(withIdentifier: "WebViewContoller") as? WebViewContoller else { return }
+
         webView.urlString = "https://en.wikipedia.org/wiki/\(breedString)"
         navigationController?.showDetailViewController(webView, sender: nil)
     }
-    
 }
-
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).capitalized + dropFirst()
-    }
-    
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
-    }
-}
-

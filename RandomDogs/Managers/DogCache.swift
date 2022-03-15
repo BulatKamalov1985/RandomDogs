@@ -15,7 +15,7 @@ final class DogCache: NSCache<AnyObject, AnyObject> {
     
     lazy var cache = NSCache<NSString, UIImage>() {
         didSet {
-            print("go")
+            print("Cache save")
         }
     }
 }

@@ -25,7 +25,7 @@ class ChooseBreedVC: UIViewController {
         super.viewDidLoad()
         
         breeds.breedList.sort()
-        setupNavigationBar(navTitle: "Choose Breed")
+        setupNavigationBar(navTitle: "Choose Breed".uppercased())
         setupBackgroundImage()
         
         pickerView.delegate = self
@@ -36,10 +36,10 @@ class ChooseBreedVC: UIViewController {
     func passBreedToCollectionView() {
         guard let BreedCollectionVC = storyboard?.instantiateViewController(withIdentifier: "BreedCollectionVC") as? BreedCollectionVC else { return }
         BreedCollectionVC.breedString = breedString
+        
         navigationController?.pushViewController(BreedCollectionVC, animated: true)
     }
     
-   
 }
 
 extension ChooseBreedVC: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -53,11 +53,11 @@ extension ChooseBreedVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return breeds.breedList[row]
+        return breeds.breedList[row].uppercased()
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        breedChooseTF.text = breeds.breedList[row]
+        breedChooseTF.text = breeds.breedList[row].uppercased()
         breedString = breeds.breedList[row]
         breedChooseTF.resignFirstResponder()
     }

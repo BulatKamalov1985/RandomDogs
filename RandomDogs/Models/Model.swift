@@ -5,20 +5,41 @@
 //  Created by Bulat Kamalov on 12.01.2022.
 //
 
-import Foundation
-
-struct DogRandom: Codable {
-    let message: String?
-    let status: String?
-}
-
 struct DogsBreed: Codable {
     let message: [String?]
     let status: String
 }
 
-enum URLS: String {
-    case urlStringRandom = "https://dog.ceo/api/breeds/image/random"
-    case urlStringBreed = "https://dog.ceo/api/breed/beagle/images"
+final class EndPointManager {
+
+    static let shared = EndPointManager()
+
+    // MARK: - Private (Properties)
+    private let host = "https://dog.ceo/api/"
+
+    // MARK: - Init
+    private init() { }
+
+    // MARK: - Public (Interface)
+    func makeStringUrl(_ type: RequestType) -> String {
+        switch type {
+        case .random:
+            return host + "breeds/image/random"
+        case .breed(let sort):
+            return host + "breed/\(sort)/images"
+        case .wiki(let breed):
+            return "https://en.wikipedia.org/wiki/\(breed)"
+        }
+    }
+}
+
+extension EndPointManager {
+
+    // MARK: - RequestType
+    enum RequestType {
+        case random
+        case breed(String = "beagle")
+        case wiki(String)
+    }
 }
 

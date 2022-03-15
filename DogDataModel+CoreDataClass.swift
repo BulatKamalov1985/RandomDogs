@@ -9,7 +9,15 @@
 import Foundation
 import CoreData
 
+public class DogDataModel: NSManagedObject { }
 
-public class DogDataModel: NSManagedObject {
+extension DogDataModel {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<DogDataModel> {
+        return NSFetchRequest<DogDataModel>(entityName: "DogDataModel")
+    }
 
+    @NSManaged public var image: Data?
+    @NSManaged public var title: String?
 }
+
+extension DogDataModel : Identifiable { }

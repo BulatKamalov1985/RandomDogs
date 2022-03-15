@@ -13,11 +13,12 @@
 		392014F627A18C8E009134A4 /* ChooseBreedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392014F527A18C8D009134A4 /* ChooseBreedVC.swift */; };
 		392014F827A26B90009134A4 /* WebViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392014F727A26B8F009134A4 /* WebViewContoller.swift */; };
 		3934821527B1318A004EE4E9 /* DescriptionDogsBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3934821427B1318A004EE4E9 /* DescriptionDogsBank.swift */; };
+		3934821727B801EB004EE4E9 /* DogRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3934821627B801EB004EE4E9 /* DogRandom.swift */; };
 		394450BD27AE6471004B2107 /* BreedBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394450BC27AE6471004B2107 /* BreedBank.swift */; };
 		394450BF27AFCF00004B2107 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394450BE27AFCF00004B2107 /* Extensions.swift */; };
 		39476A91278ECEB6009E7D4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A90278ECEB6009E7D4D /* AppDelegate.swift */; };
 		39476A93278ECEB6009E7D4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A92278ECEB6009E7D4D /* SceneDelegate.swift */; };
-		39476A95278ECEB6009E7D4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A94278ECEB6009E7D4D /* ViewController.swift */; };
+		39476A95278ECEB6009E7D4D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39476A94278ECEB6009E7D4D /* StartViewController.swift */; };
 		39476A98278ECEB6009E7D4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39476A96278ECEB6009E7D4D /* Main.storyboard */; };
 		39476A9B278ECEB6009E7D4D /* RandomDogs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39476A99278ECEB6009E7D4D /* RandomDogs.xcdatamodeld */; };
 		39476AA0278ECEB9009E7D4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39476A9E278ECEB9009E7D4D /* LaunchScreen.storyboard */; };
@@ -29,7 +30,6 @@
 		39FABDD427A33B8400447161 /* DogCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FABDD327A33B8400447161 /* DogCache.swift */; };
 		39FABDD627A3F5DE00447161 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FABDD527A3F5DE00447161 /* StorageManager.swift */; };
 		39FABDE827A516AD00447161 /* DogDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FABDE627A516AD00447161 /* DogDataModel+CoreDataClass.swift */; };
-		39FABDE927A516AD00447161 /* DogDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FABDE727A516AD00447161 /* DogDataModel+CoreDataProperties.swift */; };
 		39FABDF127A843EA00447161 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FABDF027A843EA00447161 /* QuizViewController.swift */; };
 		39FABDF327A9070700447161 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FABDF227A9070600447161 /* QuestionModel.swift */; };
 		39FABDF527A907BE00447161 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FABDF427A907BE00447161 /* QuestionBank.swift */; };
@@ -43,12 +43,13 @@
 		392014F527A18C8D009134A4 /* ChooseBreedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBreedVC.swift; sourceTree = "<group>"; };
 		392014F727A26B8F009134A4 /* WebViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContoller.swift; sourceTree = "<group>"; };
 		3934821427B1318A004EE4E9 /* DescriptionDogsBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionDogsBank.swift; sourceTree = "<group>"; };
+		3934821627B801EB004EE4E9 /* DogRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogRandom.swift; sourceTree = "<group>"; };
 		394450BC27AE6471004B2107 /* BreedBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedBank.swift; sourceTree = "<group>"; };
 		394450BE27AFCF00004B2107 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		39476A8D278ECEB6009E7D4D /* RandomDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39476A90278ECEB6009E7D4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39476A92278ECEB6009E7D4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		39476A94278ECEB6009E7D4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		39476A94278ECEB6009E7D4D /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		39476A97278ECEB6009E7D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39476A9A278ECEB6009E7D4D /* RandomDogs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RandomDogs.xcdatamodel; sourceTree = "<group>"; };
 		39476A9F278ECEB9009E7D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		39FABDD327A33B8400447161 /* DogCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCache.swift; sourceTree = "<group>"; };
 		39FABDD527A3F5DE00447161 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		39FABDE627A516AD00447161 /* DogDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DogDataModel+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		39FABDE727A516AD00447161 /* DogDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DogDataModel+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		39FABDF027A843EA00447161 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		39FABDF227A9070600447161 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		39FABDF427A907BE00447161 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		39FABDDA27A419DD00447161 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				39476A94278ECEB6009E7D4D /* ViewController.swift */,
+				39476A94278ECEB6009E7D4D /* StartViewController.swift */,
 				39476AA7278ED129009E7D4D /* DetailViewController.swift */,
 				39476AAD27943150009E7D4D /* TableViewController.swift */,
 				392014EB279EB3EF009134A4 /* BreedCollectionVC.swift */,
@@ -148,11 +148,11 @@
 			isa = PBXGroup;
 			children = (
 				39FABDE627A516AD00447161 /* DogDataModel+CoreDataClass.swift */,
-				39FABDE727A516AD00447161 /* DogDataModel+CoreDataProperties.swift */,
 				39FABDF227A9070600447161 /* QuestionModel.swift */,
 				39FABDF427A907BE00447161 /* QuestionBank.swift */,
 				394450BC27AE6471004B2107 /* BreedBank.swift */,
 				39476AA9278ED149009E7D4D /* Model.swift */,
+				3934821627B801EB004EE4E9 /* DogRandom.swift */,
 				3934821427B1318A004EE4E9 /* DescriptionDogsBank.swift */,
 			);
 			path = Models;
@@ -252,7 +252,7 @@
 			files = (
 				394450BD27AE6471004B2107 /* BreedBank.swift in Sources */,
 				39476AB527999518009E7D4D /* CustomTableViewCell.swift in Sources */,
-				39476A95278ECEB6009E7D4D /* ViewController.swift in Sources */,
+				39476A95278ECEB6009E7D4D /* StartViewController.swift in Sources */,
 				39FABDF327A9070700447161 /* QuestionModel.swift in Sources */,
 				392014F3279FFB49009134A4 /* BreedCell.swift in Sources */,
 				39476A9B278ECEB6009E7D4D /* RandomDogs.xcdatamodeld in Sources */,
@@ -260,12 +260,12 @@
 				39476AA8278ED129009E7D4D /* DetailViewController.swift in Sources */,
 				3934821527B1318A004EE4E9 /* DescriptionDogsBank.swift in Sources */,
 				39FABDD427A33B8400447161 /* DogCache.swift in Sources */,
+				3934821727B801EB004EE4E9 /* DogRandom.swift in Sources */,
 				392014F827A26B90009134A4 /* WebViewContoller.swift in Sources */,
 				39476AAE27943150009E7D4D /* TableViewController.swift in Sources */,
 				39FABDE827A516AD00447161 /* DogDataModel+CoreDataClass.swift in Sources */,
 				39476AAC278ED241009E7D4D /* NetworkManager.swift in Sources */,
 				39476AAA278ED149009E7D4D /* Model.swift in Sources */,
-				39FABDE927A516AD00447161 /* DogDataModel+CoreDataProperties.swift in Sources */,
 				39FABDF527A907BE00447161 /* QuestionBank.swift in Sources */,
 				392014EC279EB3EF009134A4 /* BreedCollectionVC.swift in Sources */,
 				39476A91278ECEB6009E7D4D /* AppDelegate.swift in Sources */,
