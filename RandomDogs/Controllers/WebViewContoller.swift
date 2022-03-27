@@ -40,4 +40,5 @@ extension WebViewContoller: WKUIDelegate, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         spinner.stopAnimating()
     }
+    
 }
